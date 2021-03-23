@@ -13,10 +13,37 @@ void queuePush(char v) {
 }
 
 void queuePop() {
+    int size = fstStack.size();
 
+    for (int i = 0; i < size - 1; i++) {
+        sndStack.push(fstStack.top());
+        fstStack.pop();
+    }
+
+    fstStack.pop();
+    cout << "\nElemento da primeira posicao removido com sucesso!";
+
+    size = sndStack.size();
+    for (int i = 0; i < size; i++) {
+        fstStack.push(sndStack.top());
+        sndStack.pop();
+    }
 }
 
 void queueTop() {
+    int size = fstStack.size();
+    for (int i = 0; i < size; i++) {
+        sndStack.push(fstStack.top());
+        fstStack.pop();
+    }
+
+    cout << "\nElemento situado na primeira posicao da fila: " << sndStack.top();
+
+    size = sndStack.size();
+    for (int i = 0; i < size; i++) {
+        fstStack.push(sndStack.top());
+        sndStack.pop();
+    }
 }
 
 // main program
