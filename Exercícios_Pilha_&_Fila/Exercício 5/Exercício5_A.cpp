@@ -22,5 +22,19 @@ int main() {
     // inverting algorithm
     int N = mainQueue.size();
 
+    for (int i = 0; i < N; i++) {
+        invertingStack.push(mainQueue.front());
+        mainQueue.pop();
+    }
+
+    cout << "Fila invertida: ";
+    N = invertingStack.size();
+    for (int i = 0; i < N; i++) {
+        mainQueue.push(invertingStack.top());
+        invertingStack.pop();
+
+        cout << mainQueue.back() << " ";
+    }
+
     return 0;
 }
